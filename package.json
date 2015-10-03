@@ -1,0 +1,29 @@
+{
+  "name": "human-readable-time",
+  "version": "0.0.1",
+  "description": "Human readable date-time",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g07cha/human-readable-time.git"
+  },
+  "keywords": [
+    "human",
+    "readable",
+    "time",
+    "date",
+    "convert"
+  ],
+  "author": "G07cha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/g07cha/human-readable-time/issues"
+  },
+  "homepage": "https://github.com/g07cha/human-readable-time#readme",
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
+}
