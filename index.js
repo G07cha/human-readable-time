@@ -1,4 +1,4 @@
-module.exports = function(dateTime, options, pattern) {
+module.exports = function(dateTime, pattern, options) {
 	/*
 	 * Validating arguments
 	 */
