@@ -1,5 +1,3 @@
-# Human-readable-time
-
 Convert Date to format given by pattern
 
 ![Test status](https://api.travis-ci.org/G07cha/human-readable-time.svg)
@@ -23,7 +21,7 @@ console.log(hrt(new Date(0)));
 ## Docs
 
 |Symbol|Meaning|
-|------|-------|
+|:---:|-------|
 | h | hours |
 | m | minutes  |
 | s | seconds |
