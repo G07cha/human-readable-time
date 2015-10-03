@@ -49,22 +49,26 @@ describe('Converting', function() {
 	});
 	
 	it('should return year only', function() {
-		assert.equal(hrt(new Date(0), 'YYYY'), '1970');
+		assert.equal(hrt(new Date(0), '%YYYY%'), '1970');
 	});
 	
 	it('should return month twice', function() {
-		assert.equal(hrt(new Date(0), 'MM/MM'), '00/00');
+		assert.equal(hrt(new Date(0), '%MM%/%MM%'), '00/00');
 	});
 	
 	it('should return month with one digit', function() {
-		assert.equal(hrt(new Date(0), 'M'), '0');
+		assert.equal(hrt(new Date(0), '%M%'), '0');
 	});
 	
 	it('should return year with two digits', function() {
-		assert.equal(hrt(new Date(0), 'YY'), '70');
+		assert.equal(hrt(new Date(0), '%YY%'), '70');
 	});
 	
 	it('should return day of week', function() {
-		assert.equal(hrt(new Date(0), 'day'), 'Thursday');
+		assert.equal(hrt(new Date(0), '%day%'), 'Thursday');
 	});
+	
+	it('should ignore pattern in words', function() {
+		assert.equal(hrt(new Date(0), 'Today is %day%'), 'Today is Thursday')
+	})
 });

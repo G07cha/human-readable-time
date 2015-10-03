@@ -15,59 +15,59 @@ module.exports = function(dateTime, pattern, options) {
 	}
 	
 	// If no pattern provided setting default one
-	var defaultPattern = pattern || 'hh:mm DD/MM/YYYY';
+	var defaultPattern = pattern || '%hh%:%mm% %DD%/%MM%/%YYYY%';
 	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const filters = [
 		{
-			pattern: /hh/g,
+			pattern: /%hh%/g,
 			replacment: validateForOneDigit(dateTime.getHours())
 		},
 		{
-			pattern: /mm/g,
+			pattern: /%mm%/g,
 			replacment: validateForOneDigit(dateTime.getMinutes())
 		},
 		{
-			pattern: /ss/g,
+			pattern: /%ss%/g,
 			replacment: validateForOneDigit(dateTime.getSeconds())
 		},
 		{
-			pattern: /DD/g,
+			pattern: /%DD%/g,
 			replacment: validateForOneDigit(dateTime.getDate())
 		},
 		{
-			pattern: /MM/g,
+			pattern: /%MM%/g,
 			replacment: validateForOneDigit(dateTime.getMonth())
 		},
 		{
-			pattern: /YYYY/g,
+			pattern: /%YYYY%/g,
 			replacment: validateForOneDigit(dateTime.getFullYear())
 		},
 		{
-			pattern: /YY/g,	//TODO
+			pattern: /%YY%/g,	//TODO
 			replacment: validateForOneDigit(dateTime.getFullYear().toString().slice(2))
 		},
 		{
-			pattern: /h/g,
+			pattern: /%h%/g,
 			replacment: dateTime.getHours()
 		},
 		{
-			pattern: /m/g,
+			pattern: /%m%/g,
 			replacment: dateTime.getMinutes()
 		},
 		{
-			pattern: /s/g,
+			pattern: /%s%/g,
 			replacment: dateTime.getSeconds()
 		},
 		{
-			pattern: /D/g,
+			pattern: /%D%/g,
 			replacment: dateTime.getDate()
 		},
 		{
-			pattern: /M/g,
+			pattern: /%M%/g,
 			replacment: dateTime.getMonth()
 		},
 		{
-			pattern: /day/g,
+			pattern: /%day%/g,
 			replacment: days[dateTime.getDay()]
 		}
 	];
