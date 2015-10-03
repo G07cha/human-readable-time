@@ -1,0 +1,1 @@
+![Test status](https://api.travis-ci.org/G07cha/human-readable-time.svg)
