@@ -45,7 +45,7 @@ describe('Incorrect values', function() {
 
 describe('Converting', function() {
 	it('should return time with default pattern', function() {
-		assert.equal(hrt(new Date(0)), '02:00 01/00/1970');
+		assert.equal(hrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/00/1970');
 	});
 	
 	it('should return year only', function() {
