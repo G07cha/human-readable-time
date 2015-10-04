@@ -29,6 +29,7 @@ console.log(hrt(new Date(0)));
 | M | month |
 | YY | year |
 | day | day of week|
+| month | month of year |
 
 Symbols can be used twice, it will add 0 if number less than 10, for example:
 
