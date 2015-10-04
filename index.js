@@ -17,6 +17,7 @@ module.exports = function(dateTime, pattern, options) {
 	// If no pattern provided setting default one
 	var defaultPattern = pattern || '%hh%:%mm% %DD%/%MM%/%YYYY%';
 	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 	const filters = [
 		{
 			pattern: /%hh%/g,
@@ -69,6 +70,10 @@ module.exports = function(dateTime, pattern, options) {
 		{
 			pattern: /%day%/g,
 			replacment: days[dateTime.getDay()]
+		},
+		{
+			pattern: /%month%/g,
+			replacment: months[dateTime.getMonth()]
 		}
 	];
 	
