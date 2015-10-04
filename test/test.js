@@ -68,7 +68,11 @@ describe('Converting', function() {
 		assert.equal(hrt(new Date(0), '%day%'), 'Thursday');
 	});
 	
+	it('should return month', function() {
+	    assert.equal(hrt(new Date(0), '%month%'), 'January');
+	});
+	
 	it('should ignore pattern in words', function() {
-		assert.equal(hrt(new Date(0), 'Today is %day%'), 'Today is Thursday')
-	})
+		assert.equal(hrt(new Date(0), 'Today is %day%'), 'Today is Thursday');
+	});
 });
