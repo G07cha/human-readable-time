@@ -57,7 +57,7 @@ console.log(hrt(new Date(1000) '%ss%'));
 // -> 01
 ```
 
-But year only be used in `%YY%` or `%YYYY%` variants.
+But year can only be used in `%YY%` or `%YYYY%` variants.
 
 
 ## License
