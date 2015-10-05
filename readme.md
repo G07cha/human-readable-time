@@ -16,6 +16,22 @@ console.log(hrt(new Date(0), 'Now is %YYYY% year'));
 // Default pattern
 console.log(hrt(new Date(0)));
 // -> 00:00 01/00/1970
+
+// Day/month string patterns
+console.log(hrt(new Date(0), 'Today is %day%'))
+// -> Today is Thursday
+```
+
+Currying is also supported!
+
+```javascript
+var hrt = require('human-readable-time');
+
+// You can use date, pattern and both in constructor
+var clock = new hrt('hh:mm');
+
+console.log(clock(new Date(0)));
+// -> 00:00
 ```
 
 ## Docs
@@ -28,7 +44,7 @@ console.log(hrt(new Date(0)));
 | D | day of month |
 | M | month |
 | YY | year |
-| day | day of week|
+| day | day of week |
 | month | month of year |
 
 Symbols can be used twice, it will add 0 if number less than 10, for example:

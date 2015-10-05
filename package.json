@@ -1,10 +1,11 @@
 {
   "name": "human-readable-time",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Human readable date-time",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -t 100",
+	"watch": "mocha -t 100 --watch --reporter min"
   },
   "repository": {
     "type": "git",

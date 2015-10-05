@@ -1,7 +1,15 @@
 var assert = require('assert');
 var hrt = require('../index.js');
 
-describe('Incorrect values', function() {
+describe('Incorrect arguments', function() {
+	it('should throw error if called without arguments', function(done) {
+		try {
+			hrt();
+		} catch(err) {
+			done();
+		}
+	});
+	
 	it('should throw error if string given as dateTime(first argument)', function(done) {
 		try {
 			hrt('string');
@@ -43,7 +51,7 @@ describe('Incorrect values', function() {
 	});
 });
 
-describe('Converting', function() {
+describe('Pattern', function() {
 	it('should return time with default pattern', function() {
 		assert.equal(hrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/00/1970');
 	});
@@ -76,3 +84,48 @@ describe('Converting', function() {
 		assert.equal(hrt(new Date(0), 'Today is %day%'), 'Today is Thursday');
 	});
 });
+
+describe('Currying function', function() {
+	var curriedHrt;
+	
+	it('should return function', function() {
+		curriedHrt = new hrt(new Date(1970, 0, 1, 0, 0, 0, 0));
+		assert.equal(typeof(curriedHrt), 'function');
+	});
+	
+	it('should be able to call new function with pattern as argument', function() {
+		assert.equal(curriedHrt('%hh%:%mm%'), '00:00');
+	});
+	
+	it('should return function based on date', function() {
+		assert.equal(curriedHrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/00/1970');
+	});
+	
+	it('should return function based on pattern', function() {
+		curriedHrt = new hrt('%hh%:%mm%');
+		assert.equal(typeof(curriedHrt), 'function');
+		assert.equal(curriedHrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00');
+	});
+
+	it('should return function based on date and pattern', function() {
+		curriedHrt = new hrt(new Date(1970, 0, 1, 0, 0, 0, 0), '%hh%:%mm%');
+		assert.equal(typeof(curriedHrt), 'function');
+		assert.equal(curriedHrt(), '00:00');
+	});
+	
+	it('should throw error if first argument not string and not date', function(done) {
+		try {
+			curriedHrt({});
+		} catch(err) {
+			done();
+		}
+	});
+	
+	it('should throw error if second argument not string', function(done) {
+		try {
+			curriedHrt(new Date(), {});
+		} catch(err) {
+			done();
+		}
+	});
+})
