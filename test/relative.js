@@ -36,9 +36,37 @@ describe('Relative timing', function() {
 		assert.equal(relative(previousYear), '1 year');
 	});
 	
-	it('should return single month');
-	it('should return three days');
-	it('should return single days');
-	it('should return three hours');
-	it('should return 10 minutes');
+	it('should return single month', function() {
+		var previousMonth = new Date();
+		previousMonth.setMonth(new Date().getMonth() - 1);
+		assert.equal(relative(previousMonth), '1 month');
+	});
+	
+	it('should return three days', function() {
+		var threeDays = new Date();
+		threeDays.setDate(new Date().getDate() - 3);
+		assert.equal(relative(threeDays), '3 days');
+	});
+	
+	it('should return yesterday', function() {
+		var threeDays = new Date();
+		threeDays.setDate(new Date().getDate() - 1);
+		assert.equal(relative(threeDays), 'Yesterday');
+	});
+	
+	it('should return three hours', function() {
+		var threeHours = new Date();
+		threeHours.setHours(new Date().getHours() - 3);
+		assert.equal(relative(threeHours), '3 hours');
+	});
+	
+	it('should return 10 minutes', function() {
+		var tenMinutes = new Date();
+		tenMinutes.setMinutes(new Date().getMinutes() - 10);
+		assert.equal(relative(tenMinutes), '10 minutes');
+	});
+	
+	it('should return "Just now"', function() {
+		assert.equal(relative(new Date()), 'Just now');
+	});
 })
