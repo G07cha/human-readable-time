@@ -1,5 +1,5 @@
 var assert = require('assert');
-var hrt = require('../index.js');
+var hrt = require('../index');
 
 describe('Incorrect arguments', function() {
 	it('should throw error if called without arguments', function(done) {
