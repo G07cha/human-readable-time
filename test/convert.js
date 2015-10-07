@@ -83,6 +83,12 @@ describe('Pattern', function() {
 	it('should ignore pattern in words', function() {
 		assert.equal(hrt(new Date(0), 'Today is %day%'), 'Today is Thursday');
 	});
+	
+	it('should work fine with direct call', function() {
+		var previousYear = new Date();
+		previousYear.setFullYear(new Date().getFullYear() - 1);
+		assert.equal(hrt(previousYear, '%relative% ago'), '1 year ago');
+	})
 });
 
 describe('Currying function', function() {
@@ -103,13 +109,11 @@ describe('Currying function', function() {
 	
 	it('should return function based on pattern', function() {
 		curriedHrt = new hrt('%hh%:%mm%');
-		assert.equal(typeof(curriedHrt), 'function');
 		assert.equal(curriedHrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00');
 	});
 
 	it('should return function based on date and pattern', function() {
 		curriedHrt = new hrt(new Date(1970, 0, 1, 0, 0, 0, 0), '%hh%:%mm%');
-		assert.equal(typeof(curriedHrt), 'function');
 		assert.equal(curriedHrt(), '00:00');
 	});
 	
@@ -127,5 +131,13 @@ describe('Currying function', function() {
 		} catch(err) {
 			done();
 		}
+	});
+	
+	it('should work fine with relative option', function() {
+		var previousYear = new Date();
+		previousYear.setFullYear(new Date().getFullYear() - 1);
+		curriedHrt = new hrt('%relative% ago');
+		
+		assert.equal(curriedHrt(previousYear), '1 year ago');
 	});
 })
