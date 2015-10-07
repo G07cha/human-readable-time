@@ -18,8 +18,12 @@ console.log(hrt(new Date(0)));
 // -> 00:00 01/00/1970
 
 // Day/month string patterns
-console.log(hrt(new Date(0), 'Today is %day%'))
+console.log(hrt(new Date(0), 'Today is %day%'));
 // -> Today is Thursday
+
+// Relative pattern
+console.log(hrt(new Date(0), '%relative% ago'));
+// -> 45 years ago
 ```
 
 Currying is also supported!
@@ -46,6 +50,7 @@ console.log(clock(new Date(0)));
 | YY | year |
 | day | day of week |
 | month | month of year |
+| relative | relative time |
 
 Symbols can be used twice, it will add 0 if number less than 10, for example:
 
