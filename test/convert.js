@@ -140,4 +140,10 @@ describe('Currying function', function() {
 		
 		assert.equal(curriedHrt(previousYear), '1 year ago');
 	});
-})
+});
+
+describe('options', function() {
+	it('should return shortened day', function() {
+		assert.equal(hrt(new Date(0), '%day%', {'shortDay': true}), 'Thu');
+	});
+});
