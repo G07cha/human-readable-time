@@ -60,10 +60,16 @@ describe('Relative timing', function() {
 		assert.equal(relative(threeHours), '3 hours');
 	});
 	
-	it('should return 1 minute', function() {
+	it('should return 1 minute', function(done) {
+		setTimeout(done, 60000);
 		var tenMinutes = new Date();
+		if(tenMinutes.getMinutes < 1) {
+			this.slow(60000);
+		}
+		
 		tenMinutes.setMinutes(new Date().getMinutes() - 1);
 		assert.equal(relative(tenMinutes), '1 minute');
+		done();
 	});
 	
 	it('should return "Just now"', function() {
