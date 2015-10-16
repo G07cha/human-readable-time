@@ -60,10 +60,10 @@ describe('Relative timing', function() {
 		assert.equal(relative(threeHours), '3 hours');
 	});
 	
-	it('should return 10 minutes', function() {
+	it('should return 1 minute', function() {
 		var tenMinutes = new Date();
-		tenMinutes.setMinutes(new Date().getMinutes() - 10);
-		assert.equal(relative(tenMinutes), '10 minutes');
+		tenMinutes.setMinutes(new Date().getMinutes() - 1);
+		assert.equal(relative(tenMinutes), '1 minute');
 	});
 	
 	it('should return "Just now"', function() {

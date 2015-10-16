@@ -64,6 +64,9 @@ console.log(hrt(new Date(1000) '%ss%'));
 
 But year can only be used in `%YY%` or `%YYYY%` variants.
 
+### Options
+
+- shortDay - Return first 3 letters of day for %day% pattern
 
 ## License
 
