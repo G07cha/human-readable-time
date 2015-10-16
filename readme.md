@@ -51,6 +51,7 @@ console.log(clock(new Date(0)));
 | day | day of week |
 | month | month of year |
 | relative | relative time |
+| 12h | Force AM/PM position |
 
 Symbols can be used twice, it will add 0 if number less than 10, for example:
 
@@ -67,6 +68,7 @@ But year can only be used in `%YY%` or `%YYYY%` variants.
 ### Options
 
 - shortDay - Return first 3 letters of day for %day% pattern
+- shortTime - Return time in 12-hour format(you can specify %12h% option to force using 'PM'/'AM' in specific place)
 
 ## License
 

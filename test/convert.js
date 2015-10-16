@@ -146,4 +146,16 @@ describe('options', function() {
 	it('should return shortened day', function() {
 		assert.equal(hrt(new Date(0), '%day%', {'shortDay': true}), 'Thu');
 	});
+	
+	it('should return time in 12 hour format', function() {
+		assert.equal(hrt(new Date(1970, 0, 1, 12, 0, 0, 0), '%hh%:%mm%', {'shortTime': true}), '12:00 PM');
+	});
+	
+	it('should return time in 12 hour format cutted to 1 PM', function() {
+		assert.equal(hrt(new Date(1970, 0, 1, 13, 0, 0, 0), '%h%', {'shortTime': true}), '1 PM');
+	});
+	
+	it('should return time in 12 hour format with forced position', function() {
+		assert.equal(hrt(new Date(1970, 0, 1, 0, 0, 0, 0), '%12h% %hh%:%mm%', {'shortTime': true}), 'AM 00:00');
+	});
 });
