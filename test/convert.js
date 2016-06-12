@@ -53,7 +53,7 @@ describe('Incorrect arguments', function() {
 
 describe('Pattern', function() {
 	it('should return time with default pattern', function() {
-		assert.equal(hrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/00/1970');
+		assert.equal(hrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/01/1970');
 	});
 	
 	it('should return year only', function() {
@@ -61,11 +61,11 @@ describe('Pattern', function() {
 	});
 	
 	it('should return month twice', function() {
-		assert.equal(hrt(new Date(0), '%MM%/%MM%'), '00/00');
+		assert.equal(hrt(new Date(0), '%MM%/%MM%'), '01/01');
 	});
 	
 	it('should return month with one digit', function() {
-		assert.equal(hrt(new Date(0), '%M%'), '0');
+		assert.equal(hrt(new Date(0), '%M%'), '1');
 	});
 	
 	it('should return year with two digits', function() {
@@ -104,7 +104,7 @@ describe('Currying function', function() {
 	});
 	
 	it('should return function based on date', function() {
-		assert.equal(curriedHrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/00/1970');
+		assert.equal(curriedHrt(new Date(1970, 0, 1, 0, 0, 0, 0)), '00:00 01/01/1970');
 	});
 	
 	it('should return function based on pattern', function() {
