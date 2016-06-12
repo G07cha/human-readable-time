@@ -15,7 +15,7 @@ console.log(hrt(new Date(0), 'Now is %YYYY% year'));
 
 // Default pattern
 console.log(hrt(new Date(0)));
-// -> 00:00 01/00/1970
+// -> 00:00 01/01/1970
 
 // Day/month string patterns
 console.log(hrt(new Date(0), 'Today is %day%'));
