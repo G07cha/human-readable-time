@@ -48,10 +48,10 @@ describe('Relative timing', function() {
 		assert.equal(relative(threeDays), '3 days');
 	});
 	
-	it('should return yesterday', function() {
+	it('should return one day', function() {
 		var threeDays = new Date();
 		threeDays.setDate(new Date().getDate() - 1);
-		assert.equal(relative(threeDays), 'Yesterday');
+		assert.equal(relative(threeDays), '1 day');
 	});
 	
 	it('should return three hours', function() {
